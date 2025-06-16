@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Usuários: </h1>
+    
+    <button><a href="{{ route("users.create") }}">Botão<a></button>
+    
     <table>
         <thead>
             <tr>
@@ -30,4 +33,6 @@
         </tbody>
     </table>
 </body>
+
+{{ $users->links() }}
 </html>
