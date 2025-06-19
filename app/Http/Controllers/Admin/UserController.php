@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
 
 use App\Models\User;
@@ -11,10 +12,10 @@ class UserController extends Controller
 {
     public function index() {
 
-    $users = User::paginate(15); //User::all();  
-    
+    $users = User::paginate(15); //User::all();
+
     return view("admin.users.index", compact('users'));
-    
+
     }
 
     public function create() {
@@ -22,10 +23,10 @@ class UserController extends Controller
 
     }
 
-    public function store(Request $request) {
+    public function store(StoreUserRequest $request) {
         User::create($request->all());
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'Usuário criado com Sucesso');
     }
 
 }

@@ -2,10 +2,16 @@
 
 @section('title', 'Listagem dos Usuários')
 
+<h1>Novo Usuário</h1>
+@if(session()->has('success'))
+    {{ session('success') }}
+
+@endif
+
 @section('content')
 
-    <button><a href="{{ route("users.create") }}">Criar Novo Usuário<a></button>
-    
+    <button><a href="{{ route("users.create") }}">Criar Novo Usuário</a></button>
+
     <table>
         <thead>
             <tr>
@@ -15,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ( $users as $user ) 
+            @forelse ( $users as $user )
                 <tr>
                     <td>{{{ $user->name }}}</td>
                     <td>{{{ $user->email }}}</td>
@@ -25,7 +31,7 @@
                 <tr>
                     <td colspan="100">Nenhum usuário no banco.</td>
                 </tr>
-            @endforelse 
+            @endforelse
         </tbody>
     </table>
     {{ $users->links() }}
