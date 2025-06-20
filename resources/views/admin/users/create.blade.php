@@ -15,6 +15,7 @@
 @section('title', 'Criar Novo Usuário')
 
 @section('content')
+    <x-alert/>
 
 <form action="{{ route("users.store") }}" method="POST">
     @csrf()

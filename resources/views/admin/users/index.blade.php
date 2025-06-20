@@ -3,14 +3,12 @@
 @section('title', 'Listagem dos Usuários')
 
 <h1>Novo Usuário</h1>
-@if(session()->has('success'))
-    {{ session('success') }}
-
-@endif
 
 @section('content')
 
     <button><a href="{{ route("users.create") }}">Criar Novo Usuário</a></button>
+
+    <x-alert/>
 
     <table>
         <thead>
